@@ -11,7 +11,7 @@ DEPS		= $(OBJS:.o=.d)
 CC			= c++
 RM			= rm -rf
 STANDART	= -std=c++98
-CFLAGS		= #-Wall -Wextra -Werror -MMD ${STANDART}
+CFLAGS		= -Wall -Wextra -Werror -MMD ${STANDART}
 
 all:		$(NAME)
 
