@@ -6,11 +6,11 @@
 #    By: drohanne <drohanne@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 14:13:35 by drohanne          #+#    #+#              #
-#    Updated: 2022/04/10 01:22:57 by drohanne         ###   ########.fr        #
+#    Updated: 2022/04/10 11:55:31 by drohanne         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_FILES	= main.cpp Contact.cpp
+SRC_FILES	= main.cpp Contact.cpp PhoneBook.cpp
 OBJS_DIR	= ./objs
 
 OBJ_FILES	= $(SRC_FILES:.cpp=.o)

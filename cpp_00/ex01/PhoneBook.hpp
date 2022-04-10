@@ -3,25 +3,24 @@
 
 #include "Contact.hpp"
 
+#define MAX_CONTACTS	8
+
 class PhoneBook
 {
 private:
 
-	class Contact m_contact[7];
+	class Contact m_contact[MAX_CONTACTS];
 	int	m_len;
+	int	m_oldest;
 
 public:
 
-	PhoneBook()
-	{
-		m_len = 0;
-	}
+	PhoneBook();
+	~PhoneBook();
 
-	void add()
-	{
-		m_contact[m_len].add();
-		m_len++;
-	}
+	void	add();
+
+	void	search() const;
 };
 
 #endif

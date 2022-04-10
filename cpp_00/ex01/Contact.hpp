@@ -3,10 +3,12 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 class Contact
 {
 private:
+
 	std::string m_first_name;
 	std::string m_last_name;
 	std::string m_nickname;
@@ -14,9 +16,15 @@ private:
 	std::string m_darkest_secret;
 
 public:
-	Contact(){};
 
-	void add();
+	Contact();
+	~Contact();
+
+	void	add();
+
+	void	print_all(const int a) const;
+
+	void	print_exact(const int index) const;
 };
 
 #endif
