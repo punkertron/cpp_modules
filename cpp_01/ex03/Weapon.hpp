@@ -9,10 +9,11 @@ private:
 	std::string	type;
 
 public:
-	Weapon();
+	Weapon(std::string str = "Default");
 	~Weapon();
 
-	
+	const std::string &getType();
+	void setType(std::string str);
 };
 
 #endif

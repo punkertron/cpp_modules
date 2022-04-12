@@ -1,11 +1,11 @@
-SRC_FILES	=  main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC_FILES	=  main.cpp
 OBJS_DIR	= ./objs
 
 OBJ_FILES	= $(SRC_FILES:.cpp=.o)
 
 OBJS 		= $(addprefix $(OBJS_DIR)/, $(OBJ_FILES))
 
-NAME		= zombie
+NAME		= file_program
 DEPS		= $(OBJS:.o=.d)
 
 CC			= c++

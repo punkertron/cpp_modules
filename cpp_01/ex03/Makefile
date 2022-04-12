@@ -1,11 +1,11 @@
-SRC_FILES	=  main.cpp Weapon.cpp
+SRC_FILES	=  main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJS_DIR	= ./objs
 
 OBJ_FILES	= $(SRC_FILES:.cpp=.o)
 
 OBJS 		= $(addprefix $(OBJS_DIR)/, $(OBJ_FILES))
 
-NAME		= zombie
+NAME		= boom
 DEPS		= $(OBJS:.o=.d)
 
 CC			= c++
