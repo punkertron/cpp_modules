@@ -13,14 +13,14 @@ void	Harl::debug( void )
 void	Harl::info( void )
 {
 	std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put"
-		"enough bacon in my burger! If you did, I wouldn’t be asking for more!"
+		" enough bacon in my burger! If you did, I wouldn’t be asking for more!"
 		<< std::endl;
 }
 
 void	Harl::warning( void )
 {
 	std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for"
-		"years whereas you started working here since last month."
+		" years whereas you started working here since last month."
 		<< std::endl;
 }
 
@@ -30,7 +30,7 @@ void	Harl::error( void )
 		<< std::endl;
 }
 
-void	Harl::complain( std::string level )
+void	Harl::filter( std::string level )
 {
 	void	(Harl::*f[4])(void) = {
 		&Harl::debug,
@@ -51,9 +51,26 @@ void	Harl::complain( std::string level )
 	{
 		if (input[i] == level)
 		{
-			(this->*f[i])();
-			break ;
+			while (i < 4)
+			{
+				std::cout << "[ " << input[i] << " ]" << std::endl;
+				(this->*f[i])();
+				std::cout << std::endl;
+				i++;
+			}
+			return ;
 		}
 		i++;
 	}
+	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	/*
+	switch (i)
+	{
+		case 0: (this->*f[0])();
+		case 1: (this->*f[1])();
+		case 2: (this->*f[2])();
+		case 3:	(this->*f[3])(); break;
+		default : std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	}
+	*/
 }

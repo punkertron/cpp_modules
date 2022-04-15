@@ -1,22 +1,17 @@
-#include "Harl.hpp"
 #include <iostream>
+#include "Harl.hpp"
 
-int main(void)
+int main(int argc, char **argv)
 {
 	Harl Harl;
 
-	Harl.complain("DEBUG");
-	Harl.complain("INFO");
-	Harl.complain("WARNING");
-	Harl.complain("ERROR");
-	Harl.complain("test");
-
-	std::cout << std::endl << "-----------" << std::endl << std::endl;
-
-	Harl.complain("DEBUG");
-	Harl.complain("INFO");
-	Harl.complain("WARNING");
-	Harl.complain("ERROR");
-	Harl.complain("test");
+	if (argc == 2)
+	{
+		Harl.filter(argv[1]);
+	}
+	else
+	{
+		std::cerr << "Bad arguments!" << std::endl;
+	}
 	return (0);
 }
