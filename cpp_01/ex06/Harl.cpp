@@ -63,14 +63,14 @@ void	Harl::filter( std::string level )
 		i++;
 	}
 	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-	/*
-	switch (i)
-	{
-		case 0: (this->*f[0])();
-		case 1: (this->*f[1])();
-		case 2: (this->*f[2])();
-		case 3:	(this->*f[3])(); break;
-		default : std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-	}
-	*/
+
+//	switch (i)
+//	{
+//		case 0: (this->*f[0])(); /* fall through */
+//		case 1: (this->*f[1])(); /* fall through */
+//		case 2: (this->*f[2])(); /* fall through */
+//		case 3:	(this->*f[3])(); break; /* fall through */
+//		default : std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+//	}
+//
 }
