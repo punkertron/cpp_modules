@@ -1,11 +1,11 @@
-SRC_FILES	=  main.cpp
+SRC_FILES	=  main.cpp Fixed.cpp
 OBJS_DIR	= ./objs
 
 OBJ_FILES	= $(SRC_FILES:.cpp=.o)
 
 OBJS 		= $(addprefix $(OBJS_DIR)/, $(OBJ_FILES))
 
-NAME		= brain
+NAME		= program
 DEPS		= $(OBJS:.o=.d)
 
 RM			= rm -rf
