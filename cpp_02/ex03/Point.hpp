@@ -17,6 +17,11 @@ public:
 	const Point& operator=(const Point &a);
 
 	void	print_point(void) const;
+
+	float	getY() const;
+	float	getX() const;
 };
+
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif

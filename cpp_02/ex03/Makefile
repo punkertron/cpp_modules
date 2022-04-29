@@ -1,4 +1,4 @@
-SRC_FILES	=  main.cpp Fixed.cpp Point.cpp
+SRC_FILES	=  main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJS_DIR	= ./objs
 
 OBJ_FILES	= $(SRC_FILES:.cpp=.o)

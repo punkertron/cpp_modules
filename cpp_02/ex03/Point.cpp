@@ -20,3 +20,12 @@ void	Point::print_point(void) const
 	std::cout << "x point: " << x << std::endl;
 	std::cout << "y point: " << y << std::endl;
 }
+
+float	Point::getY() const
+{
+	return (this->x.toFloat());
+}
+float	Point::getX() const
+{
+	return (this->y.toFloat());
+}
