@@ -7,6 +7,8 @@ Point::~Point() {};
 
 Point::Point(const Fixed a, const Fixed b): x(a), y(b) {}
 
+Point::Point(const float a, const float b): x(a), y(b) {}
+
 Point::Point(const Point &a): x(a.x), y(a.y) {};
 
 const Point& Point::operator=(const Point &a)

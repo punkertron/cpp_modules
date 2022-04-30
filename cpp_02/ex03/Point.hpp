@@ -13,6 +13,7 @@ public:
 	Point();
 	~Point();
 	Point(const Fixed a, const Fixed b);
+	Point(const float a, const float b);
 	Point(const Point &a);
 	const Point& operator=(const Point &a);
 

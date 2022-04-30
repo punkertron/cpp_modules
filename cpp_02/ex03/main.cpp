@@ -29,7 +29,7 @@ int main( void )
 	{
 		Point point1(Fixed(0), Fixed(0));
 		Point point2(Fixed(0), Fixed(5));
-		Point point3(Fixed(7), Fixed(0));
+		Point point3(7.1f, 0.0f);
 
 		Point	test(Fixed(0), Fixed(0));
 		if (bsp(point1, point2, point3, test) == false) //border
