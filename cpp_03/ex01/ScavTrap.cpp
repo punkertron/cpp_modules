@@ -7,6 +7,11 @@ ScavTrap::ScavTrap(std::string const & name):
 	std::cout << "ScavTrap Constructor called" << std::endl;
 }
 
+ScavTrap::ScavTrap(): ClapTrap()
+{
+	std::cout << "Default ScavTrap Constructor called" << std::endl;
+}
+
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap Destructor called" << std::endl;

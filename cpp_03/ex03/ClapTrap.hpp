@@ -13,7 +13,7 @@
 
 class ClapTrap
 {
-private:
+protected:
 	std::string	m_name;
  	int	m_attack; //damage to this
 	int	m_energy; //energe

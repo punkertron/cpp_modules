@@ -11,7 +11,7 @@ ClapTrap::ClapTrap():
 ClapTrap::ClapTrap(std::string const & name):
 	m_name(name), m_attack(M_NUMBER_DAMAGE), m_energy(M_NUMBER_HIT), m_hit(M_NUMBER_HIT)
 {
-	std::cout << "ClapTrap Constructor called" << std::endl;
+	std::cout << "ClapTrap Constructor2 called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string const & name, int hit, int energy, int attack):
@@ -30,6 +30,7 @@ ClapTrap::ClapTrap(const ClapTrap &a)
 	std::cout << "Copy constructor called" << std::endl;
 	operator=(a);
 }
+
 ClapTrap& ClapTrap::operator=(const ClapTrap &a)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
