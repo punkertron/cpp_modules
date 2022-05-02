@@ -14,6 +14,12 @@ ClapTrap::ClapTrap(std::string const & name):
 	std::cout << "ClapTrap Constructor called" << std::endl;
 }
 
+ClapTrap::ClapTrap(std::string const & name, int hit, int energy, int attack):
+	m_name(name), m_attack(attack), m_energy(energy), m_hit(hit)
+{
+	std::cout << "ClapTrap constructor called" << std::endl;
+}
+
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor called" << std::endl;
@@ -77,4 +83,28 @@ void	ClapTrap::beRepaired(unsigned int amount)
 int	ClapTrap::getHit() const
 {
 	return (this->m_hit);
+}
+
+std::string	ClapTrap::getName() const {return this->m_name;}
+int			ClapTrap::getAttack() const {return this->m_attack;}
+int			ClapTrap::getEnergy() const {return this->m_energy;}
+
+void			ClapTrap::setEnergy(int new_energy)
+{
+	this->m_energy = new_energy;
+}
+
+void			ClapTrap::setAttack(int new_attack)
+{
+	this->m_attack = new_attack;
+}
+
+void			ClapTrap::setHit(int new_hit)
+{
+	this->m_hit = new_hit;
+}
+
+void			ClapTrap::setName(std::string new_name)
+{
+	this->m_name = new_name;
 }
