@@ -1,16 +1,15 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 
 int main(void)
 {
-	ScavTrap	a("BIGBOY");
+	FragTrap	a("FRAGBOY");
 
-	a.guradGate();
+	a.highFivesGuys();
 	std::cout <<
 		"name = " << a.getName() << std::endl <<
 		"hit = " << a.getHit() << std::endl <<
 		"energy = " << a.getEnergy() << std::endl <<
 		"attack = " << a.getAttack() << std::endl;
-	a.ScavTrap::attack("BIGBOY");
 	return (0);
 }
