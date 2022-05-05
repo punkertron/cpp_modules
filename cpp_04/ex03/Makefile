@@ -1,4 +1,4 @@
-SRC_FILES	=  main.cpp AMateria.cpp Ice.cpp Cure.cpp ICharacter.cpp IMaterialSource.cpp
+SRC_FILES	=  main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MaterialSource.cpp
 OBJS_DIR	= ./objs
 
 OBJ_FILES	= $(SRC_FILES:.cpp=.o)
