@@ -1,7 +1,7 @@
 #include "Dog.hpp"
 #include <iostream>
 
-Dog::Dog(): Animal("Dog")
+Dog::Dog(): AAnimal("Dog")
 {
 	std::cout << "Dog Constructor called" << std::endl;
 	this->brain_ptr = new Brain();
@@ -13,7 +13,7 @@ Dog::~Dog()
 	delete this->brain_ptr;
 }
 
-Dog::Dog(const Dog &a): Animal("Dog")
+Dog::Dog(const Dog &a): AAnimal("Dog")
 {
 	operator=(a);
 }

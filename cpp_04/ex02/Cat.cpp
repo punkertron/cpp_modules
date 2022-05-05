@@ -1,7 +1,7 @@
 #include "Cat.hpp"
 #include <iostream>
 
-Cat::Cat(): Animal("Cat")
+Cat::Cat(): AAnimal("Cat")
 {
 	std::cout << "Cat Constructor called" << std::endl;
 	this->brain_ptr = new Brain();
@@ -13,7 +13,7 @@ Cat::~Cat()
 	delete this->brain_ptr;
 }
 
-Cat::Cat(const Cat &a): Animal("Cat")
+Cat::Cat(const Cat &a): AAnimal("Cat")
 {
 	operator=(a);
 }
