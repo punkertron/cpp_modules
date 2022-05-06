@@ -21,3 +21,9 @@ AMateria& AMateria::operator=(const AMateria &a)
 	this->m_type = a.m_type;
 	return (*this);
 }
+
+void	AMateria::use(ICharacter& target)
+{
+	(void) target;
+	return ;
+}

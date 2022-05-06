@@ -1,4 +1,4 @@
-SRC_FILES	=  main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MaterialSource.cpp
+SRC_FILES	=  main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 OBJS_DIR	= ./objs
 
 OBJ_FILES	= $(SRC_FILES:.cpp=.o)
@@ -11,7 +11,7 @@ DEPS		= $(OBJS:.o=.d)
 RM			= rm -rf
 CC			= c++
 STANDART	= -std=c++98
-CPPFLAGS	= -Wall -Wextra -Werror -MMD ${STANDART}
+CPPFLAGS	= -Wall -Wextra -Werror -g3 -MMD ${STANDART}
 
 all:		$(NAME)
 

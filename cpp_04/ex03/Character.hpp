@@ -13,7 +13,7 @@ private:
 public:
 	Character();
 	Character(std::string name);
-	~Character();
+	virtual ~Character();
 	Character(const Character &a);
 	Character& operator=(const Character &a);
 

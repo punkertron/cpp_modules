@@ -5,13 +5,15 @@
 
 #include <string>
 
+class ICharacter;
+
 class AMateria
 {
 protected:
 	std::string	m_type;
 public:
 	AMateria();
-	~AMateria();
+	virtual ~AMateria();
 	AMateria(std::string const & type);
 	AMateria(const AMateria &a);
 	AMateria& operator=(const AMateria &a);
