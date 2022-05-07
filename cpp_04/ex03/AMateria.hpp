@@ -11,6 +11,7 @@ class AMateria
 {
 protected:
 	std::string	m_type;
+
 public:
 	AMateria();
 	virtual ~AMateria();

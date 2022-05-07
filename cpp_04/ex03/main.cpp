@@ -10,7 +10,7 @@
 
 int main()
 {
-	/*
+	
 	{
 		std::cout << "test equip/unequip, clone:" << std::endl;
 		Character a("BIGBOY");
@@ -31,9 +31,9 @@ int main()
 
 		delete bob;
 	}
-*/
-	
 
+	
+	std::cout << std::endl << "Main test:" << std::endl;
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());

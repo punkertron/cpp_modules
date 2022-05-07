@@ -44,5 +44,12 @@ int main(void)
 
 	delete b;
 
+	Dog basic;
+	{
+		Dog tmp = basic;
+		basic.makeSound();
+	}
+	basic.makeSound();
+
 	return (0);
 }

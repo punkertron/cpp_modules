@@ -12,10 +12,7 @@ MateriaSource::~MateriaSource()
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->slot[i])
-		{
-			//std::cout << "destr" << std::endl;
 			delete this->slot[i];
-		}
 	}
 };
 
