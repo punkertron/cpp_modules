@@ -59,3 +59,28 @@ std::ostream& operator<<(std::ostream &out, const Bureaucrat &a)
 
 	return (out);
 }
+
+void	Bureaucrat::signForm(Form &a) const
+{
+	try
+	{
+		if (a.getStatusSigned() == true)
+			throw (std::string) "The Form sighned";
+		else if (this->getGrade() <= a.getMinGradeSign())
+		{
+			a.setSignedStatus(true);
+			std::cout << "Bureaucrat " << this->getName() << " signed " << a.getNameForm() << " Form." << std::endl;
+		}
+		else
+		{
+			std::cout << "Bureaucrat " << this->getName() << " couldn’t sign " << a.getNameForm() << " Form because MinGradeToSign is "
+			<< a.getMinGradeSign() << " while Bureaucrat is " << this->getGrade() << " Grade."
+			<< std::endl;
+		}
+
+	}
+	catch(const std::string & e)
+	{
+		std::cerr << e << std::endl;
+	}
+}

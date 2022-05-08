@@ -5,6 +5,10 @@
 #include <iostream>
 #include <exception>
 
+#include "Form.hpp"
+
+class Form;
+
 class Bureaucrat
 {
 private:
@@ -35,6 +39,9 @@ public:
 	int	getGrade() const;
 	void	increment(int a);
 	void	decrement(int a);
+
+
+	void	signForm(Form &a) const;
 };
 
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &a);
