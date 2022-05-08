@@ -1,9 +1,10 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
+#include <sstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(): Form("None", 145, 137), m_target("None") {};
+ShrubberyCreationForm::ShrubberyCreationForm(): Form("ShrubberyCreationForm", 145, 137), m_target("None") {};
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form("None", 145, 137), m_target(target) {};
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form("ShrubberyCreationForm", 145, 137), m_target(target) {};
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {};
 

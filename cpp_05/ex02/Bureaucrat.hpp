@@ -42,6 +42,8 @@ public:
 
 
 	void	signForm(Form &a) const;
+
+	void executeForm(Form const & form);
 };
 
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &a);

@@ -3,9 +3,9 @@
 #include <ctime>
 #include <cstdlib>
 
-RobotomyRequestForm::RobotomyRequestForm(): Form("None", 72, 45), m_target("None") {};
+RobotomyRequestForm::RobotomyRequestForm(): Form("RobotomyRequestForm", 72, 45), m_target("None") {};
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target): Form("None", 72, 45), m_target(target) {};
+RobotomyRequestForm::RobotomyRequestForm(std::string target): Form("RobotomyRequestForm", 72, 45), m_target(target) {};
 
 RobotomyRequestForm::~RobotomyRequestForm() {};
 

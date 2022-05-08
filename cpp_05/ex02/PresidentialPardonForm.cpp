@@ -1,11 +1,8 @@
 #include "PresidentialPardonForm.hpp"
 
-#include <ctime>
-#include <cstdlib>
+PresidentialPardonForm::PresidentialPardonForm(): Form("PresidentialPardonForm", 25, 5), m_target("None") {};
 
-PresidentialPardonForm::PresidentialPardonForm(): Form("None", 25, 5), m_target("None") {};
-
-PresidentialPardonForm::PresidentialPardonForm(std::string target): Form("None", 25, 5), m_target(target) {};
+PresidentialPardonForm::PresidentialPardonForm(std::string target): Form("PresidentialPardonForm", 25, 5), m_target(target) {};
 
 PresidentialPardonForm::~PresidentialPardonForm() {};
 
