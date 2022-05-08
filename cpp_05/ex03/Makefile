@@ -1,4 +1,7 @@
-SRC_FILES	=  main.cpp Bureaucrat.cpp
+SRC_FILES	=  main.cpp Bureaucrat.cpp Form.cpp\
+	ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp\
+	Intern.cpp
+
 OBJS_DIR	= ./objs
 
 OBJ_FILES	= $(SRC_FILES:.cpp=.o)
