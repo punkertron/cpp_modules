@@ -5,8 +5,7 @@
 /*
 int main(void)
 {
-    Array<int> arr(50);
-    arr[0] = 10;
+    const Array<int> arr(10);
 
     std::cout << arr[0] << std::endl;
     std::cout << arr.size() << std::endl;

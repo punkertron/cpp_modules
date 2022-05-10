@@ -52,4 +52,11 @@ public:
 			throw std::out_of_range("Input index >= size of array");
 		return (arr[i]);
 	}
+
+	const T& operator[](unsigned int i) const
+	{
+		if (i >= m_size)
+			throw std::out_of_range("Input index >= size of array");
+		return (arr[i]);
+	}
 };
