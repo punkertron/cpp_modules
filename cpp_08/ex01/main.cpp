@@ -4,16 +4,7 @@
 /*
 int main(void)
 {
-	Span a(3);
-
-	try
-	{
-		a.shortestSpan();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	
 	
 	try
 	{
@@ -35,19 +26,30 @@ int main(void)
 
 int main(void)
 {
+	Span a(3);
 
-	/*Span sp = Span(1000000);
 	try
 	{
-		sp.addNumber(1000000, 3);
-		sp.addNumber(5);
+		a.shortestSpan();
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
-	}*/
+	}
+
+	std::cout << "-----------" << std::endl;
+	Span big = Span(1000000);
+	try
+	{
+		big.addNumber(1000000, 3);
+		//big.addNumber(5);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	
-	
+	std::cout << "-----------" << std::endl;
 	Span sp(5);
 	try
 	{
@@ -65,7 +67,7 @@ int main(void)
 	}
 	Span temp1 = sp;
 	Span temp2(sp);
-
+	std::cout << "-----------" << std::endl;
 	try
 	{
 		std::cout << temp1.shortestSpan() << std::endl;
