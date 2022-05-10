@@ -21,4 +21,4 @@ typename T::iterator	easyfind(T& a, int i)
 	throw NotFound();
 }
 
-#endif /* EASYFIND_HPP */
+#endif /* Easyfind.hpp */
