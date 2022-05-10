@@ -32,7 +32,7 @@ int main(void)
 }
 */
 
-
+/*
 int main( void ) {
 	int a = 2;
 	int b = 3;
@@ -48,10 +48,10 @@ int main( void ) {
 	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 	return 0;
 }
+*/
 
 
 
-/*
 int main(void)
 {
 	int a = 3, b = 5;
@@ -74,4 +74,3 @@ int main(void)
 	
 	return (0);
 }
-*/
