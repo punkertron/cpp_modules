@@ -9,7 +9,9 @@ int main(int argc, char **argv)
         std::cout << "Error: could not open file." << std::endl;
         return 1;
     }
-    DataBase data((std::string(argv[1])));
+    DataBase data(std::string("data.csv"), std::string(argv[1]));
+
+    //data.run();
 
     return 0;
 }
