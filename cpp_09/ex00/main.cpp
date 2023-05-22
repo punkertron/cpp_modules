@@ -95,13 +95,13 @@ static void main_calc(const std::map<unsigned long long, float> &data, const cha
     struct s_input input;
 
     std::string temp;
-    unsigned long long inp;
+    unsigned long long inp, real_inp;
     std::map<unsigned long long, float>::const_iterator it;
     while (getline(in_data, temp))
     {
         if (is_bad_input(temp, input))
             continue ;
-        inp = input.year * 10000 + input.month * 100 + input.day;
+        inp = static_cast<unsigned long long> (input.year) * 10000 + input.month * 100 + input.day;
         it = data.find(inp);
         if (it != data.end())
         {
@@ -109,11 +109,12 @@ static void main_calc(const std::map<unsigned long long, float> &data, const cha
         }
         else
         {
+            real_inp = inp;
             while (--inp && (it = data.find(inp)) == data.end())
             {
                 ;
             }
-            print_res(inp, it->second, input.val);
+            print_res(real_inp, it->second, input.val);
         }
     }
 
