@@ -35,6 +35,56 @@ static void merge(std::vector<int> &vec, const int left
     {
         rightArray[i] = vec[mid + 1 + i];
     }
-    
 
+	int i, j, k;
+	i = j = 0;
+	k = left;
+
+	for (int i = p; i < right - mid + 1; ++i)
+	{
+
+	}
+	
+	while (i < subArrayOne && j < subArrayTwo)
+	{
+		if (leftArray[i] <= rightArray[i])
+		{
+			vec[k] = leftArray[i];
+		}
+		else
+		{
+			vec[k] = rightArray[i];
+		}
+		++i;
+		++k;
+	}
+
+	while (i < left)
+	{
+		vec[k] = leftArray[k];
+		++i;
+		++k;
+	}
+
+	while (i < right)
+	{
+		vec[k] = rightArray[i];
+		++i;
+		++k;
+	}
+}
+
+void MergeInsertSort(std::vector<int> &vec, int p, int r)
+{
+	if (r - p > K)
+	{
+		int m = (p + r) / 2;
+		MergeInsertSort(vec, p, m);
+		MergeInsertSort(vec, m + 1, r);
+		merge(vec, p, m, r);
+	}
+	else
+	{
+		insertionSort(vec, p, r);
+	}
 }
