@@ -1,6 +1,6 @@
 #include "PmergeMe.hpp"
 
-static int K = 5;
+static const int K = 5;
 
 static void insertionSort(std::vector<int> &vec, int p, int size)
 {
@@ -40,11 +40,12 @@ static void merge(std::vector<int> &vec, const int left
 	i = j = 0;
 	k = left;
 
+	/*
 	for (int i = p; i < right - mid + 1; ++i)
 	{
 
 	}
-	
+	*/
 	while (i < subArrayOne && j < subArrayTwo)
 	{
 		if (leftArray[i] <= rightArray[i])
