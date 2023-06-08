@@ -51,14 +51,14 @@ int main(int argc, char **argv)
         for (int i = 1; i < argc; ++i)
         {
             val = strtol(argv[i], &endptr, 10);
-            if (*endptr != '\0' || val < 1)
+            if (*endptr != '\0' || val < 1 || std::count(vec1.begin(), vec1.end(), val))
                 exit_error();
             vec1.push_back(val);
         }
 
         vec2 = vec1;
         //std::sort(vec2.begin(), vec2.end());
-        MergeInsertSort(vec2, 0, vec2.size() - 1);
+        MergeInsertSort(vec2);
 		gettimeofday(&end, NULL);
 
         std::cout << "Before:\t";

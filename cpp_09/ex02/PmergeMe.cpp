@@ -1,91 +1,70 @@
 #include "PmergeMe.hpp"
 
-static const int K = 5;
-
-static void insertionSort(std::vector<int> &vec, int p, int size)
+static void InsertionSort(std::vector<int> &vec)
 {
-    int tempVal, j;
+	int value, hole;
 
-    for (int i = p; i < size; ++i)
-    {
-        tempVal = vec[i + 1];
-        j = i + 1;
-        while (j > p && vec[j - 1] > tempVal)
-        {
-            vec[j] = vec[j - 1];
-            --j;
-        }
-        vec[j] = tempVal;
-    }
+	for (int i = 1, size = vec.size(); i < size; ++i)
+	{
+		value = vec[i];
+		hole = i;
+
+		while (hole > 0 && vec[hole - 1] > value)
+		{
+			vec[hole] = vec[hole - 1];
+			--hole;
+		}
+		vec[hole] = value;
+	}
 }
 
-static void merge(std::vector<int> &vec, const int left
-    , const int mid, const int right)
+void MergeInsertSort(std::vector<int> &vec)
 {
-    const int subArrayOne = mid - left + 1;
-    const int subArrayTwo = right - mid;
-
-    std::vector<int> leftArray(subArrayOne), rightArray(subArrayTwo);
-
-    for (int i = 0; i < subArrayOne; ++i)
-    {
-        leftArray[i] = vec[left + i];
-    }
-    for (int i = 0; i < subArrayTwo; ++i)
-    {
-        rightArray[i] = vec[mid + 1 + i];
-    }
-
-	int i, j, k;
-	i = j = 0;
-	k = left;
-
-	/*
-	for (int i = p; i < right - mid + 1; ++i)
+	for (int i = 0, size = vec.size(); i < size; ++i, ++i)
 	{
-
+		if (i + 1 < size && vec[i] < vec[i + 1])
+			std::swap(vec[i], vec[i + 1]);
 	}
-	*/
-	while (i < subArrayOne && j < subArrayTwo)
+
+	std::vector<int> largest, smallest;
+	for(int i = 0, size = vec.size(); i < size; ++i, ++i)
 	{
-		if (leftArray[i] <= rightArray[i])
+		largest.push_back(vec[i]);
+		if (i + 1 < size)
+			smallest.push_back(vec[i + 1]);
+	}
+
+	int nL = largest.size(), nS = smallest.size();
+	int i = 0, j = 0, k = 0;
+
+	InsertionSort(largest);
+	InsertionSort(smallest);
+
+	while (i < nL && j < nS)
+	{
+		if (largest[i] <= smallest[j])
 		{
-			vec[k] = leftArray[i];
+			vec[k] = largest[i];
+			++i;
 		}
 		else
 		{
-			vec[k] = rightArray[i];
+			vec[k] = smallest[j];
+			++j;
 		}
-		++i;
 		++k;
 	}
 
-	while (i < left)
+	while (i < nL)
 	{
-		vec[k] = leftArray[k];
+		vec[k] = largest[i];
 		++i;
 		++k;
 	}
-
-	while (i < right)
+	while (j < nS)
 	{
-		vec[k] = rightArray[i];
-		++i;
+		vec[k] = smallest[j];
+		++j;
 		++k;
-	}
-}
-
-void MergeInsertSort(std::vector<int> &vec, int p, int r)
-{
-	if (r - p > K)
-	{
-		int m = (p + r) / 2;
-		MergeInsertSort(vec, p, m);
-		MergeInsertSort(vec, m + 1, r);
-		merge(vec, p, m, r);
-	}
-	else
-	{
-		insertionSort(vec, p, r);
 	}
 }

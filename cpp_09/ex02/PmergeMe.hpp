@@ -3,6 +3,6 @@
 
 #include <vector>
 
-void MergeInsertSort(std::vector<int> &vec, int, int);
+void MergeInsertSort(std::vector<int> &vec);
 
 #endif
