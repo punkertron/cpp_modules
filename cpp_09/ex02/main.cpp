@@ -24,16 +24,14 @@ static void print_vector(std::vector<unsigned int> &v)
     std::cout << v[v.size() - 1];
 }
 
-/*
-static void print_list(std::list<int> &l)
+static void print_list(std::list<unsigned int> &l)
 {
-    for(std::list<int>::const_iterator it = l.begin(), end = (--l.end()); it != end; ++it)
+    for(std::list<unsigned int>::const_iterator it = l.begin(), end = (--l.end()); it != end; ++it)
     {
         std::cout << *it << ' ';
     }
     std::cout << *(--l.end());
 }
-*/
 
 int main(int argc, char **argv)
 {
@@ -86,10 +84,11 @@ int main(int argc, char **argv)
         }
 
         gettimeofday(&start, NULL);
-        l.sort();
+        MergeInsertSort(l);
+        //l.sort();
         gettimeofday(&end, NULL);
         unsigned long long duration = end.tv_sec - start.tv_sec + end.tv_usec - start.tv_usec;
-        //print_list(l2);
+        print_list(l);
         //std::cout << std::endl;
 
         std::cout << "Time to process a range of " << l.size() << " elements with std::list   : " << duration / 1000.0 << std::endl;

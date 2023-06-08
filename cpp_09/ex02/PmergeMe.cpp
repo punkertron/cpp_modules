@@ -1,6 +1,8 @@
 #include "PmergeMe.hpp"
+#include <iostream>
 
-static void vec_InsertionSort(std::vector<unsigned int> &vec)
+//vector
+static void InsertionSort(std::vector<unsigned int> &vec)
 {
 	unsigned int value, hole;
 
@@ -37,8 +39,8 @@ void MergeInsertSort(std::vector<unsigned int> &vec)
 	unsigned int nL = largest.size(), nS = smallest.size();
 	unsigned int i = 0, j = 0, k = 0;
 
-	vec_InsertionSort(largest);
-	vec_InsertionSort(smallest);
+	InsertionSort(largest);
+	InsertionSort(smallest);
 
 	while (i < nL && j < nS)
 	{
@@ -67,4 +69,35 @@ void MergeInsertSort(std::vector<unsigned int> &vec)
 		++j;
 		++k;
 	}
+}
+
+
+//list
+static void InsertionSort(std::list<unsigned int> &l)
+{
+	unsigned int value;
+	std::list<unsigned int>::iterator hole, temp;
+
+	for(std::list<unsigned int>::iterator it = l.begin(), end = l.end(); it != end; ++it)
+	{
+		value = *it;
+		hole = it;
+		//std::cout << "a";
+		while (hole != end && /*std::cout << "p" &&*/ *(temp = --it) > value)
+		{
+			*hole = *temp;
+			--hole;
+			std::cout << "h";
+		}
+		*hole = value;
+	}
+}
+
+
+
+
+void MergeInsertSort(std::list<unsigned int> &l)
+{
+	(void) l;
+	InsertionSort(l);
 }
