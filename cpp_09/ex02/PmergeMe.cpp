@@ -1,8 +1,8 @@
 #include "PmergeMe.hpp"
 
-static void InsertionSort(std::vector<int> &vec)
+static void vec_InsertionSort(std::vector<unsigned int> &vec)
 {
-	int value, hole;
+	unsigned int value, hole;
 
 	for (int i = 1, size = vec.size(); i < size; ++i)
 	{
@@ -18,7 +18,7 @@ static void InsertionSort(std::vector<int> &vec)
 	}
 }
 
-void MergeInsertSort(std::vector<int> &vec)
+void MergeInsertSort(std::vector<unsigned int> &vec)
 {
 	for (int i = 0, size = vec.size(); i < size; ++i, ++i)
 	{
@@ -26,7 +26,7 @@ void MergeInsertSort(std::vector<int> &vec)
 			std::swap(vec[i], vec[i + 1]);
 	}
 
-	std::vector<int> largest, smallest;
+	std::vector<unsigned int> largest, smallest;
 	for(int i = 0, size = vec.size(); i < size; ++i, ++i)
 	{
 		largest.push_back(vec[i]);
@@ -34,11 +34,11 @@ void MergeInsertSort(std::vector<int> &vec)
 			smallest.push_back(vec[i + 1]);
 	}
 
-	int nL = largest.size(), nS = smallest.size();
-	int i = 0, j = 0, k = 0;
+	unsigned int nL = largest.size(), nS = smallest.size();
+	unsigned int i = 0, j = 0, k = 0;
 
-	InsertionSort(largest);
-	InsertionSort(smallest);
+	vec_InsertionSort(largest);
+	vec_InsertionSort(smallest);
 
 	while (i < nL && j < nS)
 	{

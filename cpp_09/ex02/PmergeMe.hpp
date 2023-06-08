@@ -2,7 +2,9 @@
 #define PMERGEME_HPP
 
 #include <vector>
+#include <list>
 
-void MergeInsertSort(std::vector<int> &vec);
+void MergeInsertSort(std::vector<unsigned int> &vec);
+void MergeInsertSort(std::list<unsigned int> &list);
 
 #endif
