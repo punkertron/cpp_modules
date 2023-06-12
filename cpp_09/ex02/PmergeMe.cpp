@@ -76,21 +76,29 @@ void MergeInsertSort(std::vector<unsigned int> &vec)
 static void InsertionSort(std::list<unsigned int> &l)
 {
 	unsigned int value;
-	std::list<unsigned int>::iterator hole, temp;
+	std::list<unsigned int>::iterator temp, next;
 
-	for(std::list<unsigned int>::iterator it = l.begin(), end = l.end(); it != end; ++it)
+	for (std::list<unsigned int>::iterator it = l.begin(); it != l.end(); ++it)
 	{
 		value = *it;
-		hole = it;
-		//std::cout << "a";
-		while (hole != end && /*std::cout << "p" &&*/ *(temp = --it) > value)
+		temp = it;
+		temp--;
+		while (temp != l.begin() && *temp > value)
 		{
-			*hole = *temp;
-			--hole;
-			std::cout << "h";
+			next = temp;
+			++next;
+			*next = *temp;
+			--temp;
 		}
-		*hole = value;
+		next = temp;
+		++next;
+		*next = value;
 	}
+	/*
+	value = *(l.begin());
+	l.pop_front();
+	l.push_back(value);
+	*/
 }
 
 
@@ -98,6 +106,5 @@ static void InsertionSort(std::list<unsigned int> &l)
 
 void MergeInsertSort(std::list<unsigned int> &l)
 {
-	(void) l;
 	InsertionSort(l);
 }

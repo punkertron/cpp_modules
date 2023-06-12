@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <array>
 #include <algorithm>
 
 #include <cstdlib> //exit
@@ -24,7 +25,7 @@ static void print_vector(std::vector<unsigned int> &v)
     std::cout << v[v.size() - 1];
 }
 
-static void print_list(std::list<unsigned int> &l)
+void print_list(std::list<unsigned int> &l)
 {
     for(std::list<unsigned int>::const_iterator it = l.begin(), end = (--l.end()); it != end; ++it)
     {
@@ -70,6 +71,7 @@ int main(int argc, char **argv)
         std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << duration / 1000.0 << std::endl;
     }
 
+	//list
     {
         std::list<unsigned int> l;
         char *endptr;
@@ -84,12 +86,16 @@ int main(int argc, char **argv)
         }
 
         gettimeofday(&start, NULL);
-        MergeInsertSort(l);
-        //l.sort();
+        
+		std::cout << std::endl << "LIST!!!" << std::endl;
+		print_list(l);
+		std::cout << std::endl;
+
+		MergeInsertSort(l);
         gettimeofday(&end, NULL);
         unsigned long long duration = end.tv_sec - start.tv_sec + end.tv_usec - start.tv_usec;
         print_list(l);
-        //std::cout << std::endl;
+        std::cout << std::endl;
 
         std::cout << "Time to process a range of " << l.size() << " elements with std::list   : " << duration / 1000.0 << std::endl;
 
