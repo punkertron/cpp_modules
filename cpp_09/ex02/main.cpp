@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <list>
-#include <array>
 #include <algorithm>
 
 #include <cstdlib> //exit
@@ -16,6 +15,29 @@ static void exit_error()
     exit(EXIT_FAILURE);
 }
 
+static bool is_duplicate(std::vector<unsigned int> &v, const unsigned int val)
+{
+    for (int i = 0, s = v.size(); i < s; ++i)
+    {
+        if (v[i] == val)
+            return true;
+    }
+    return false;
+}
+
+static bool is_duplicate(std::list<unsigned int> &l, const unsigned int val)
+{
+    for (std::list<unsigned int>::iterator it = l.begin(); it != l.end(); ++it)
+    {
+        if (*it == val)
+            return true;
+    }
+    return false;
+}
+
+
+
+/*
 static void print_vector(std::vector<unsigned int> &v)
 {
     for (int i = 0, s = v.size() - 1; i < s; ++i)
@@ -33,6 +55,7 @@ void print_list(std::list<unsigned int> &l)
     }
     std::cout << *(--l.end());
 }
+*/
 
 int main(int argc, char **argv)
 {
@@ -41,6 +64,7 @@ int main(int argc, char **argv)
 
     timeval start, end;
 
+    //vector
     {
         std::vector<unsigned int> vec;
         char *endptr;
@@ -49,13 +73,13 @@ int main(int argc, char **argv)
         for (int i = 1; i < argc; ++i)
         {
             val = strtol(argv[i], &endptr, 10);
-            if (*endptr != '\0' || val < 1 || val > INT_MAX || std::count(vec.begin(), vec.end(), val))
+            if (*endptr != '\0' || val < 1 || val > INT_MAX || is_duplicate(vec, val))
                 exit_error();
             vec.push_back(val);
         }
 
-        std::cout << "Before:\t";
-        print_vector(vec);
+        //std::cout << "Before:\t";
+        //print_vector(vec);
 
         gettimeofday(&start, NULL);
         MergeInsertSort(vec);
@@ -65,8 +89,11 @@ int main(int argc, char **argv)
         unsigned long long duration = end.tv_sec - start.tv_sec + end.tv_usec - start.tv_usec;
 
         std::cout << "After:\t";
-        print_vector(vec);
-        std::cout << std::endl;
+        //print_vector(vec);
+        //std::cout << std::endl;
+
+        if (std::is_sorted(vec.begin(), vec.end()))
+            std::cout << "sorted" << std::endl;
 
         std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << duration / 1000.0 << std::endl;
     }
@@ -80,23 +107,25 @@ int main(int argc, char **argv)
         for (int i = 1; i < argc; ++i)
         {
             val = strtol(argv[i], &endptr, 10);
-            if (*endptr != '\0' || val < 1 || val > INT_MAX || std::count(l.begin(), l.end(), val))
+            if (*endptr != '\0' || val < 1 || val > INT_MAX || is_duplicate(l, val))
                 exit_error();
-           l.push_back(val);
+            l.push_back(val);
         }
 
         gettimeofday(&start, NULL);
-        
-		std::cout << std::endl << "LIST!!!" << std::endl;
-		print_list(l);
-		std::cout << std::endl;
+
+        //print_list(l);
+        //std::cout << std::endl;
 
 		MergeInsertSort(l);
         gettimeofday(&end, NULL);
         unsigned long long duration = end.tv_sec - start.tv_sec + end.tv_usec - start.tv_usec;
-        print_list(l);
-        std::cout << std::endl;
-
+        
+        //print_list(l);
+        //std::cout << std::endl;
+        if (std::is_sorted(l.begin(), l.end()))
+            std::cout << "SORTED" << std::endl;
+        
         std::cout << "Time to process a range of " << l.size() << " elements with std::list   : " << duration / 1000.0 << std::endl;
 
     }
