@@ -6,6 +6,7 @@
 #include <cstdlib> //exit
 #include <sys/time.h> //gettimeofday
 #include <climits>
+#include <ctime>
 
 #include "PmergeMe.hpp"
 
@@ -35,9 +36,6 @@ static bool is_duplicate(std::list<unsigned int> &l, const unsigned int val)
     return false;
 }
 
-
-
-/*
 static void print_vector(std::vector<unsigned int> &v)
 {
     for (int i = 0, s = v.size() - 1; i < s; ++i)
@@ -47,7 +45,8 @@ static void print_vector(std::vector<unsigned int> &v)
     std::cout << v[v.size() - 1];
 }
 
-void print_list(std::list<unsigned int> &l)
+/*
+static void print_list(std::list<unsigned int> &l)
 {
     for(std::list<unsigned int>::const_iterator it = l.begin(), end = (--l.end()); it != end; ++it)
     {
@@ -62,7 +61,8 @@ int main(int argc, char **argv)
     if (argc < 2)
         exit_error();
 
-    timeval start, end;
+    clock_t start, end;
+    double time_elapsed_in_ms;
 
     //vector
     {
@@ -78,24 +78,25 @@ int main(int argc, char **argv)
             vec.push_back(val);
         }
 
-        //std::cout << "Before:\t";
-        //print_vector(vec);
-
-        gettimeofday(&start, NULL);
-        MergeInsertSort(vec);
-		gettimeofday(&end, NULL);
-
+        std::cout << "Before:\t";
+        print_vector(vec);
         std::cout << std::endl;
-        unsigned long long duration = end.tv_sec - start.tv_sec + end.tv_usec - start.tv_usec;
+
+        start = clock();
+        MergeInsertSort(vec);
+        end = clock();
+        time_elapsed_in_ms = 1000.0 * (end - start) / static_cast<double>(CLOCKS_PER_SEC);
 
         std::cout << "After:\t";
-        //print_vector(vec);
-        //std::cout << std::endl;
+        print_vector(vec);
+        std::cout << std::endl;
 
+        /*
         if (std::is_sorted(vec.begin(), vec.end()))
             std::cout << "sorted" << std::endl;
+        */
 
-        std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << duration / 1000.0 << std::endl;
+        std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << time_elapsed_in_ms << " ms" << std::endl;
     }
 
 	//list
@@ -112,22 +113,20 @@ int main(int argc, char **argv)
             l.push_back(val);
         }
 
-        gettimeofday(&start, NULL);
-
-        //print_list(l);
-        //std::cout << std::endl;
-
+        start = clock();
 		MergeInsertSort(l);
-        gettimeofday(&end, NULL);
-        unsigned long long duration = end.tv_sec - start.tv_sec + end.tv_usec - start.tv_usec;
-        
+        end = clock();
+        time_elapsed_in_ms = 1000.0 * (end - start) / static_cast<double>(CLOCKS_PER_SEC);
+
         //print_list(l);
         //std::cout << std::endl;
+        
+        /*
         if (std::is_sorted(l.begin(), l.end()))
             std::cout << "SORTED" << std::endl;
-        
-        std::cout << "Time to process a range of " << l.size() << " elements with std::list   : " << duration / 1000.0 << std::endl;
+        */
 
+        std::cout << "Time to process a range of " << l.size() << " elements with std::list   : " << time_elapsed_in_ms << " ms" << std::endl;
     }
 
     return 0;

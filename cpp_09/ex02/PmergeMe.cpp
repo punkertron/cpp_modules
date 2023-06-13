@@ -117,11 +117,8 @@ void MergeInsertSort(std::list<unsigned int> &l)
 	InsertionSort(largest);
 	InsertionSort(smallest);
 
-	
 	std::list<unsigned int>::iterator nL = largest.end(), nS = smallest.end(),
 		i = largest.begin(), j = smallest.begin(), k = l.begin();
-	
-	(void) nL, (void) nS, (void) i, (void) j, (void) k;
 	
 	/*
 	unsigned int nL = largest.size(), nS = smallest.size();

@@ -6,7 +6,7 @@
 #include <cstdlib> //exit
 #include <cctype> //isdigit
 
-static std::string Possible_Characters = " +-/*0123456789";
+const std::string Possible_Characters = " +-/*0123456789";
 
 static void exit_error()
 {
@@ -70,6 +70,8 @@ int main(int argc, char **argv)
             nums.push(result);
         }
     }
+    if (nums.size() != 1)
+        exit_error();
     std::cout << nums.top() << std::endl;
 
     return 0;
